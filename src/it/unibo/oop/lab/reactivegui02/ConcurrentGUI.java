@@ -11,7 +11,6 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
-import java.util.concurrent.TimeUnit;
 
 /**
  * This is a first example on how to realize a reactive GUI.
@@ -26,7 +25,6 @@ public final class ConcurrentGUI extends JFrame {
     private final JButton down = new JButton("down");
     private final JButton stop = new JButton("stop");
     private boolean goUp = true;
-    private static final int SECOND_TO_SLEEP = 10;
 
     /**
      * Builds a new CGUI.
@@ -70,14 +68,6 @@ public final class ConcurrentGUI extends JFrame {
          * Register a listener that stops it
          */
 
-        new Thread(() -> {
-            try {
-                TimeUnit.SECONDS.sleep(SECOND_TO_SLEEP);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-            agent.stopCounting();
-        }).start();
 
         stop.addActionListener(new ActionListener() {
             /**
