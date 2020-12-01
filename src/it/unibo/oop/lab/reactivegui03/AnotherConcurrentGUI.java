@@ -13,7 +13,6 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 
-
 /**
  * This is a first example on how to realize a reactive GUI.
  */
@@ -75,6 +74,9 @@ public final class AnotherConcurrentGUI extends JFrame {
                 e.printStackTrace();
             }
             agent.stopCounting();
+            stop.setEnabled(false);
+            up.setEnabled(false);
+            down.setEnabled(false);
         }).start();
         /*
          * Register a listener that stops it
